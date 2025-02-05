@@ -13,6 +13,7 @@ import { SheetClose } from "@/components/ui/sheet";
 import Anchor from "./Anchor";
 import { ThemeToggle } from "./ThemeToggle";
 import Image from "next/image";
+import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 export const NAVLINKS = [
   {
@@ -48,13 +49,17 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-2">
             <div className="md:block hidden">
-               
-                  <Button className="rounded-xl font-bold">Login</Button>
+            <LoginLink postLoginRedirectURL="/dashboard">
+            <Button className="rounded-xl font-bold">Login</Button>
+            </LoginLink>
+                  
               
               </div>
               <div className="md:block hidden">
-               
-                  <Button className="rounded-xl font-bold">Try  CleanSlate</Button>
+              <RegisterLink>
+              <Button className="rounded-xl font-bold">Try  CleanSlate</Button>
+              </RegisterLink>
+                  
                 
               </div>
               <div className='hidden md:flex'>

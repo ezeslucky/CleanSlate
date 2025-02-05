@@ -1,3 +1,6 @@
+import { Button } from '@/components/ui/button'
+import { RegisterLink } from '@kinde-oss/kinde-auth-nextjs/components'
+import Link from 'next/link'
 import React from 'react'
 
 function Hero() {
@@ -23,12 +26,31 @@ function Hero() {
       </p>
 
       <div className="mt-8 flex flex-wrap justify-center gap-4">
-        <a
+        {/* <a
           className="block w-full rounded bg-white text-black px-12 py-3 text-sm font-medium  shadow hover:bg-slate-600 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
           href="#"
         >
           Learn More
-        </a>
+        </a> */}
+        <div className="md:block hidden">
+              <RegisterLink>
+              <Button className="rounded-xl font-bold">Try  CleanSlate</Button>
+              </RegisterLink>
+                  
+                
+              </div>
+              <div className="md:block hidden">
+             
+              <Button className="rounded-xl font-bold">
+                <Link href="https://github.com/ezeslucky/CleanSlate.git">
+                Github ✨
+                </Link>
+                
+                </Button>
+              
+                  
+                
+              </div>
 
        
       </div>

@@ -1,4 +1,5 @@
-import Footer from "./_components/Footer";
+ "use client"
+ import Footer from "./_components/Footer";
 // import Header from "./_components/Header";
 import Hero from "./_components/Hero";
 import { Navbar } from "./_components/Navbar";
