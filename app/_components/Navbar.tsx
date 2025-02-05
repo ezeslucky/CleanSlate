@@ -2,7 +2,7 @@
 
 
 import Link from "next/link";
-import {  buttonVariants } from "../../components/ui/button";
+import {  Button, buttonVariants } from "../../components/ui/button";
 import { Icons } from "./icon";
 
 
@@ -25,14 +25,7 @@ export const NAVLINKS = [
     href: "/docs",
   },
 
-//   {
-//     title: "Examples",
-//     href: "/examples",
-//   },
-//   {
-//     title: "Colors",
-//     href: "/colors",
-//   },
+
 ];
 
 export function Navbar() {
@@ -54,6 +47,16 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-2">
+            <div className="md:block hidden">
+               
+                  <Button className="rounded-xl font-bold">Login</Button>
+              
+              </div>
+              <div className="md:block hidden">
+               
+                  <Button className="rounded-xl font-bold">Try  CleanSlate</Button>
+                
+              </div>
               <div className='hidden md:flex'>
                 
               </div>
@@ -73,6 +76,8 @@ export function Navbar() {
               >
                 <Icons.twitter className="icon-class w-3" />
               </Link>
+
+              
               <ThemeToggle />
               </div>
             </div>
