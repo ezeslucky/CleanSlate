@@ -5,7 +5,7 @@ import Hero from "./_components/Hero";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useEffect } from "react";
 import Footer from "./_components/Footer";
-import { Navbar } from "./_components/Header";
+import { Navbar } from "./_components/Navbar";
 
 export default function Home() {
 
