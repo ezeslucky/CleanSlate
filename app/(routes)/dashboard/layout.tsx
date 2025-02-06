@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client"
 import { api } from '@/convex/_generated/api';
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 import { useConvex } from 'convex/react';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
-// import SideNav from './_components/SideNav';
-// import { FileListContext } from '@/app/_context/FilesListContext';
+import SideNav from './_components/SideNav';
+import { FileListContext } from '@/app/_context/FilesListContext';
 
 function DashboardLayout(
     {
@@ -16,9 +15,7 @@ function DashboardLayout(
       }>
 ) {
     const convex=useConvex();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const {user}:any=useKindeBrowserClient();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [fileList_,setFileList_]=useState();
     const router=useRouter();
     useEffect(()=>{
@@ -37,16 +34,16 @@ function DashboardLayout(
 
   return (
     <div>
-      {/* <FileListContext.Provider value={{fileList_,setFileList_}}> */}
+      <FileListContext.Provider value={{fileList_,setFileList_}}>
       <div className='grid grid-cols-4'>
           <div className='bg-white h-screen w-72 fixed'>
-          {/* <SideNav/> */}
+          <SideNav/>
           </div>
           <div className='col-span-4 ml-72'>
           {children}
           </div>
       </div>
-      {/* </FileListContext.Provider> */}
+      </FileListContext.Provider>
      
       </div>
   )

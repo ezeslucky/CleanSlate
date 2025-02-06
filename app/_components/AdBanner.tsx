@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function AdBanner({props}:any) {
     useEffect(() => {
         try {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
         } catch (err) {
           console.log(err);

@@ -1,32 +1,24 @@
-/* eslint-disable @typescript-eslint/no-wrapper-object-types */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Archive, ChevronDown, Flag, Github } from 'lucide-react'
+import Image from 'next/image'
 import React, { useContext, useEffect, useState } from 'react'
-// import SideNavTopSection, { TEAM } from './SideNavTopSection'
+import SideNavTopSection, { TEAM } from './SideNavTopSection'
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
-// import SideNavBottomSection from './SideNavBottomSection'
+import SideNavBottomSection from './SideNavBottomSection'
 import { useConvex, useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
 import { toast } from 'sonner'
-// import { FileListContext } from '@/app/_context/FilesListContext'
-import SideNavTopSection, { TEAM } from './SideNavTopSection'
-import SideNavBottomSection from './SideNavBottomSection'
 import { FileListContext } from '@/app/_context/FilesListContext'
 
 
 
 function SideNav() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const {user}:any=useKindeBrowserClient();
   const createFile=useMutation(api.files.createFile);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [activeTeam,setActiveTeam]=useState<TEAM|any>();
   const convex=useConvex();
   const [totalFiles,setTotalFiles]=useState<Number>();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const {fileList_,setFileList_}=useContext(FileListContext);
   useEffect(()=>{
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     activeTeam&&getFiles();
   },[activeTeam])
   const onFileCreate=(fileName:string)=>{
@@ -44,7 +36,6 @@ function SideNav() {
         getFiles();
         toast('File created successfully!')
       }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     },(e)=>{
       toast('Error while creating file')
 
