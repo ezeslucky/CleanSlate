@@ -1,3 +1,4 @@
+import { LoginLink } from '@kinde-oss/kinde-auth-nextjs'
 import React from 'react'
 
 function Hero() {
@@ -5,9 +6,7 @@ function Hero() {
     <section className="">
         <div className='flex items-baseline 
         justify-center pt-20'>
-        {/* <h2 className='text-white border 
-            px-3 p-2 rounded-full
-        text-center border-white'>See What&apos;s New | <span className='text-sky-300'>AI Diagram</span></h2> */}
+        
 
         </div>
   <div className="mx-auto h-screen max-w-screen-xl px-4 py-12 lg:flex  ">
@@ -27,7 +26,8 @@ function Hero() {
           className="block w-full rounded bg-white text-black px-12 py-3 text-sm font-medium  shadow hover:bg-slate-600 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
           href="#"
         >
-          Learn More
+          <LoginLink postLoginRedirectURL="/dashboard"> Try CleanSlate</LoginLink>
+          
         </a>
 
        
