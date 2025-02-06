@@ -1,85 +1,124 @@
+"use client";
 
-import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs'
-import Image from 'next/image'
-import React from 'react'
 
-function Header() {
+import Link from "next/link";
+import {  buttonVariants } from "../../components/ui/button";
+import { Icons } from "./icon";
+
+
+
+import { SheetClose } from "@/components/ui/sheet";
+
+
+import Anchor from "./Anchor";
+import { ThemeToggle } from "./ThemeToggle";
+import Image from "next/image";
+
+export const NAVLINKS = [
+  {
+    title: "Docs",
+    href: "/docs",
+  },
+
+  {
+    title: "Components",
+    href: "/docs",
+  },
+
+//   {
+//     title: "Examples",
+//     href: "/examples",
+//   },
+//   {
+//     title: "Colors",
+//     href: "/colors",
+//   },
+];
+
+export function Navbar() {
   return (
-    <header className="bg-black">
-  <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-    <Image src='/logo.svg' alt='logo'
-    width={100}
-    height={100}
-    />
-
-    <div className="flex flex-1 items-center justify-end md:justify-between">
-      <nav aria-label="Global" className="hidden md:block">
-        <ul className="flex items-center gap-6 text-sm">
-          <li>
-            <a className="text-white transition hover:text-gray-100" href="#"> About </a>
-          </li>
-
-          <li>
-            <a className="text-white transition hover:text-gray-100/75" href="#"> Careers </a>
-          </li>
-
-          <li>
-            <a className="text-white transition hover:text-gray-100/75" href="#"> History </a>
-          </li>
-
-          <li>
-            <a className="text-white transition hover:text-gray-100/75" href="#"> Services </a>
-          </li>
-
-          <li>
-            <a className="text-white transition hover:text-gray-100/75" href="#"> Projects </a>
-          </li>
-
+    <nav className="w-full border-b h-16 sticky top-0 z-50 lg:px-4 px-2 backdrop-filter backdrop-blur-xl bg-opacity-5">
+      <div className="sm:p-3 p-2 max-w-[1530px] mx-auto h-full flex items-center justify-between gap-2">
+        <div className="flex items-center gap-5">
         
-        </ul>
-      </nav>
-
-      <div className="flex items-center gap-4">
-        <div className="sm:flex sm:gap-4">
-          <div
-            className="block rounded-md  px-5 py-2.5 text-sm font-medium 
-            text-white transition "
-           
-          >
-            <LoginLink postLoginRedirectURL="/dashboard"> Login</LoginLink>
-          </div>
-
-          <div
-            className="hidden rounded-md bg-gray-100 
-            px-5 py-2.5 text-sm font-medium
-             text-black transition
-              hover:text-slate-800 sm:block"
-           
-          >
-          <RegisterLink>Register</RegisterLink>  
+          <div className="flex items-center gap-8">
+            <div className="sm:flex ">
+              <Logo />
+            </div>
+            <div className="lg:flex hidden items-center gap-5 text-sm font-medium text-muted-foreground">
+              <NavMenu />
+            </div>
           </div>
         </div>
 
-        <button
-          className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
-        >
-          <span className="sr-only">Toggle menu</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
+              <div className='hidden md:flex'>
+                
+              </div>
+              <div>
+              <Link
+                href="https://github.com/ezeslucky/CleanSlate.git"
+                className={buttonVariants({ variant: "ghost", size: "icon" })}
+              >
+                <Icons.gitHub className="icon-class w-4" />
+              </Link>
+              <Link
+                href="https://x.com/ezeslucky"
+                className={buttonVariants({
+                  variant: "ghost",
+                  size: "icon",
+                })}
+              >
+                <Icons.twitter className="icon-class w-3" />
+              </Link>
+              <ThemeToggle />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</header>
-  )
+    </nav>
+  );
 }
 
-export default Header
+export function Logo() {
+  return (
+    <Link href="/" className="flex items-center gap-2">
+      {/* <Icons.logo className="icon-class w-2" /> */}
+      <Image  src="./logo.svg" alt="logo" width={75} height={75}/>
+
+      <h2 className="text-base md:text-lg font-bold">
+      CleanSlate
+      </h2>
+      
+    </Link>
+  );
+}
+
+export function NavMenu({ isSheet = false }) {
+  return (
+    <>
+      {NAVLINKS.map((item) => {
+        const Comp = (
+          <Anchor
+            key={item.title + item.href}
+            activeClassName="text-black dark:text-white font-semibold"
+            absolute
+            href={item.href}
+          >
+            {item.title}
+          </Anchor>
+        );
+        return isSheet ? (
+          <SheetClose key={item.title + item.href} asChild>
+            {Comp}
+          </SheetClose>
+        ) : (
+          Comp
+        );
+      })}
+    </>
+  );
+}

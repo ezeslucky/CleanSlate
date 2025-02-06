@@ -1,9 +1,11 @@
 "use client"
-import Image from "next/image";
-import Header from "./_components/Header";
+
+// import Header from "./_components/Header";
 import Hero from "./_components/Hero";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useEffect } from "react";
+import Footer from "./_components/Footer";
+import { Navbar } from "./_components/Header";
 
 export default function Home() {
 
@@ -14,8 +16,9 @@ export default function Home() {
   },[user])
   return (
     <div>
-      <Header/>
+      <Navbar/>
       <Hero/>
+      <Footer/>
     </div>
   );
 }

@@ -3,8 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ConvexClientProvider from "./ConvexClientProvider";
 import { Toaster } from "@/components/ui/sonner";
-import Head from "next/head";
-import Script from "next/script";
+// import Head from "next/head";
+// import Script from "next/script";
+import { ThemeProvider } from "./_components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+       {/* // eslint-disable-next-line @next/next/no-script-component-in-head, @next/next/no-script-component-in-head
        <Head>
         <Script
           async
@@ -27,12 +29,19 @@ export default function RootLayout({
           strategy="lazyOnload"
           crossOrigin="anonymous"
         />
-      </Head>
+      </Head> */}
       <body className={inter.className}>
+      <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
         <ConvexClientProvider>
          {children}
          <Toaster />
         </ConvexClientProvider>
+        </ThemeProvider>
         </body>
     </html>
   );

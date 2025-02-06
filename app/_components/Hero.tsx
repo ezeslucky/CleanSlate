@@ -2,23 +2,23 @@ import React from 'react'
 
 function Hero() {
   return (
-    <section className="bg-black">
+    <section className="">
         <div className='flex items-baseline 
         justify-center pt-20'>
-        <h2 className='text-white border 
+        {/* <h2 className='text-white border 
             px-3 p-2 rounded-full
-        text-center border-white'>See What's New | <span className='text-sky-300'>AI Diagram</span></h2>
+        text-center border-white'>See What&apos;s New | <span className='text-sky-300'>AI Diagram</span></h2> */}
 
         </div>
   <div className="mx-auto h-screen max-w-screen-xl px-4 py-12 lg:flex  ">
     <div className="mx-auto max-w-xl text-center">
       <h1 className="text-3xl text-sky-300 font-extrabold sm:text-5xl">
-      Documents & diagrams
-        <strong className="font-extrabold text-white sm:block"> 
-        for engineering teams. </strong>
+      Smarter technical 
+        <strong className="text-gray-600 sm:block text-5xl font-semibold hover:text-black dark:text-gray-400 dark:hover:text-white"> 
+        design  automation! </strong>
       </h1>
 
-      <p className="mt-4 sm:text-xl/relaxed text-slate-200">
+      <p className="mt-4 sm:text-xl/relaxed  text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white">
       All-in-one markdown editor, collaborative canvas, and diagram-as-code builder
       </p>
 
